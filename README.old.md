@@ -24,6 +24,37 @@ The user should be able to:
 
 ## Code
 
+````Javascript
+searchemp=(empname) =>{
+        var employeesrec=this.state.employees
+        var found = false
+        var searchdata = []
+        for(let i=0; i<employeesrec.length; i++){
+            if (empname.toLowerCase() == employeesrec[i].name.toLowerCase()){
+                found = true
+                searchdata.push(employeesrec[i])
+            }
+        }
+        if (found){
+            this.setState({
+                employees:searchdata
+            })
+        }
+        else{
+            this.setState({
+                employees:[{
+                    name: "employee not found"
+                }]
+            })
+        }
+    }
+    render(){
+        var rec = this.state.employees
+        return(
+````
+
+The code above is the function that allows the user to search for an employee in the directory. While searching for an employee that is not in the directory it returns employee not found. But if the employee is in the directory it returns that employee's profile.
+
 ## Learning Points
 
 `React`

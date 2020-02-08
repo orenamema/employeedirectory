@@ -3,13 +3,28 @@ import Api from "../utils/Api";
 import Records from "./Record"
 class Datastore extends React.Component {
     state = {
-employees:""
+employees:[]
     }
     componentDidMount =()=>{
+        let userdata = []
+        let employeedata = ""
         Api.getusers().then(results=>{
-            console.log (results)
+            // console.log (results.data.results)
+            for(let i=0; i<results.data.results.length; i++){
+                 employeedata= {
+                    name: results.data.results[i].name.first,
+                    email: results.data.results[i].email,
+                    image: results.data.results[i].picture.large,
+                    phone: results.data.results[i].phone,
+                    DOB: results.data.results[i].dob.date,
+                }
+                console.log (employeedata)
+                userdata.push(employeedata)
+            }
             this.setState({
-                employees:results.data.results
+                employees:userdata
+            },() =>{ 
+            console.log(this.state.employees)
             })
         })
     }
@@ -21,17 +36,19 @@ employees:""
     Hello world
 </h1>
     
-   rec.map((data, i) => {
-       console.log (data)
-<Records
-name = {data.name}
-email = {data.email}
-location = {data.location}
-gender = {data.gender}
-key={i}
-/>
-    }
-}
+   {rec.map((data, i) => ( 
+
+        <Records
+        name = {data.name}
+        email = {data.email}
+        image = {data.image}
+        phone = {data.phone}
+        DOB = {data.DOB}
+        key={i}
+        />
+
+        ))}
+
 </div>
         )
     }

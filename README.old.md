@@ -15,7 +15,7 @@ The user should be able to:
 * [React](https://reactjs.org/)
 * [Nodejs](https://nodejs.org/en/)
 * [Javascript](https://www.w3schools.com/js)
-* [FontAwesome](https://fontawesome.com/)
+* [CSS](https://www.w3schools.com/css/)
 * [HTML](https://www.w3schools.com/html/)
 
 ## Application

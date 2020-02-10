@@ -1,7 +1,7 @@
 # EmployeeDirectory - React
 
 ## Introduction
-I have created an employee directory with React.This project required that I break up the application's UI into components, manage component state, and respond to user events.This application lets the user view its entire emplloyee directory all at once therefore having quick access to information.
+I have created an employee directory with React.This project required that I break up the application's UI into components, manage component state, and respond to user events.This application lets the user view its entire employee directory all at once therefore having quick access to information. The user will be able to filter by name, phone, email and DOB.
 
 ## Acceptance Criteria
 

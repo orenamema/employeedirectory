@@ -20,40 +20,32 @@ The user should be able to:
 
 ## Application
 
-![alt text](https://github.com/orenamema/EmployeeDirectory/raw/master/assets/images/.gif)
+![alt text](https://github.com/orenamema/employeedirectory/raw/master/public/images/dir.gif)
 
 ## Code
 
 ````Javascript
-searchemp=(empname) =>{
-        var employeesrec=this.state.employees
-        var found = false
-        var searchdata = []
-        for(let i=0; i<employeesrec.length; i++){
-            if (empname.toLowerCase() == employeesrec[i].name.toLowerCase()){
-                found = true
-                searchdata.push(employeesrec[i])
-            }
-        }
-        if (found){
-            this.setState({
-                employees:searchdata
-            })
-        }
-        else{
-            this.setState({
-                employees:[{
-                    name: "employee not found"
-                }]
-            })
-        }
-    }
-    render(){
-        var rec = this.state.employees
-        return(
-````
 
-The code above is the function that allows the user to search for an employee in the directory. While searching for an employee that is not in the directory it returns employee not found. But if the employee is in the directory it returns that employee's profile.
+  componentDidMount =()=>{
+
+    Api.getusers().then(json => {
+        let rows = [];
+        json.results.forEach(item => rows.push({
+          name: `${item.name.first} ${item.name.last}`,
+          email: item.email,
+          image: [<img src={item.picture.thumbnail} className="img-fluid" class="rounded-circle" alt=""/>], //
+          phone: item.phone,
+          DOB: item.dob.date.substring(0, 10),
+        }));
+        console.log(rows);
+        this.setState({ rows });
+      })
+      .catch(err => console.error(err));
+    
+  }
+````
+The code above highlights how the row are created and how I've pulled the data from the Api with the Api.getusers function. I later added the necessary items to the table with json.results.forEach which updates the name, email,image, phone number and DOB.
+
 
 ## Learning Points
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Datastore from "./components/Datastore";
+import DatatablePage from "./components/DatatablePage";
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
 <div className="Header">
   <h1>Employee Directory</h1>
 </div>
-        <Datastore/>
+        <DatatablePage/>
 
     </div>
   );

@@ -1,6 +1,8 @@
 import React from "react";
 import Api from "../utils/Api";
-import Records from "./Record"
+import Records from "./Record";
+import Searchbar from "./Searchbar"
+
 class Datastore extends React.Component {
     state = {
 employees:[]
@@ -28,14 +30,39 @@ employees:[]
             })
         })
     }
+    searchemp=(empname) =>{
+        var employeesrec=this.state.employees
+        var found = false
+        var searchdata = []
+        for(let i=0; i<employeesrec.length; i++){
+            if (empname.toLowerCase() == employeesrec[i].name.toLowerCase()){
+                found = true
+                searchdata.push(employeesrec[i])
+            }
+        }
+        if (found){
+            this.setState({
+                employees:searchdata
+            })
+        }
+        else{
+            this.setState({
+                employees:[{
+                    name: "employee not found"
+                }]
+            })
+        }
+    }
     render(){
         var rec = this.state.employees
         return(
 <div>
 <h1>
-    Hello world
+  
 </h1>
-    
+    <Searchbar
+        searchemp={this.searchemp}
+        />
    {rec.map((data, i) => ( 
 
         <Records
@@ -46,6 +73,7 @@ employees:[]
         DOB = {data.DOB}
         key={i}
         />
+
 
         ))}
 

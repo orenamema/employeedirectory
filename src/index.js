@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// https://react-bootstrap.github.io/getting-started/introduction/
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

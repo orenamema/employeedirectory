@@ -1,7 +1,11 @@
-import axios from "axios"
+// import axios from "axios"
 
 export default{
     getusers: function(){
-        return axios.get ("https://randomuser.me/api/?results=50&nat=us")
+        return fetch("https://randomuser.me/api/?results=50&nat=us", {
+            method: "GET",
+          })
+            .then(res => {return res.json();})
     }
+
 }

@@ -23,6 +23,7 @@ The user should be able to:
 ![alt text](https://github.com/orenamema/employeedirectory/raw/master/public/images/dir.gif)
 
 To access the application you will need to do a NPM Start in the Terminal
+Here is a link to the [application](https://orenamema.github.io/employeedirectory/)
 
 ## Code
 
